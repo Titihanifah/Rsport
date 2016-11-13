@@ -20,7 +20,7 @@
   </p>
   <div class="row">
     <div class="col-md-6">
-        <form class="form-horizontal" role="form" method="POST" action="{{ url('/paymentconfirmation') }}">
+        <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ url('/paymentconfirmation') }}">
           {{ csrf_field() }}
           <div class="form-group">
               <label class="col-md-2 control-label">Nama Pengirim</label>

@@ -51,7 +51,7 @@ class PaymentConfirmationController extends Controller
 
         $pc = new PaymentConfirmation;
         if($request->hasFile('proof') && $request->file('proof')->isValid()) {
-            return $request->proof;
+            //return $request->proof;
             $destinationPath = 'uploads/confirms';
             $extension = $request->proof->extension();
             $fileName = date('YmdHms').'_'.Auth::user()->id.'.'.$extension;
@@ -59,13 +59,13 @@ class PaymentConfirmationController extends Controller
             $pc->image = $fileName;
         }
         $pc->user_id = Auth::user()->id;
-        $pc->amount = $request->amout;
+        $pc->amount = $request->amount;
         $pc->sender_name = $request->sender_name;
         $pc->bank = $request->bank;
         $pc->save();
 
         Session::flash('success', '1');
-        return Redirect::to('balance/confirm');
+        return \Redirect::to('balance/confirm');
 
     }
 

@@ -17,6 +17,7 @@ Route::get('/', function () {
 	}
 	return Redirect::to('home');
 });
+Auth::routes();
 // Route::get('/titijahat', function () {
 //     return view('balance.create');
 // });
@@ -24,7 +25,6 @@ Route::get('/balance/confirm', function () {
     return view('balance.confirm');
 });
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
